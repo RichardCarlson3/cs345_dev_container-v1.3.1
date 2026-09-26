@@ -1,0 +1,1 @@
+SELECT * FROM product ORDER BY manufacturer ASC, price DESC;

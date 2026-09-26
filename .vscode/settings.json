@@ -1,0 +1,12 @@
+{
+  "python.testing.pytestEnabled": true,
+  "python.analysis.autoImportCompletions": true,
+  "editor.formatOnSave": true,
+  "workbench.colorCustomizations": {
+    "terminal.background": "#1E1E1E", // change to any hex color
+    "terminal.foreground": "#f5ed0d", // text color
+    "terminalCursor.foreground": "#00FF00" // cursor color
+  },
+  "python-envs.defaultEnvManager": "ms-python.python:system",
+  "python-envs.pythonProjects": []
+}

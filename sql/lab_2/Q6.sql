@@ -1,0 +1,1 @@
+SELECT * FROM product WHERE price IS NOT NULL ORDER BY price DESC;

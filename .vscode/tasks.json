@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Mongo: Open mongosh",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "mongosh \"$MONGO_URL\""
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Postgres: Open psql",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "psql \"$DATABASE_URL\""
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Run: Connectivity check (Postgres + Mongo)",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "python app/test_db_and_mongo.py"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Test: pytest",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "pytest -q"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Compose: up -d",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "docker compose up -d"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Compose: down",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "docker compose down"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

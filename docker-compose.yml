@@ -1,0 +1,61 @@
+services:
+  db:
+    image: postgres:16
+    container_name: dev-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-mypass}
+      POSTGRES_DB: ${POSTGRES_DB:-postgres}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./sql:/workspace/sql:ro
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-postgres} -h localhost" ]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  mongo:
+    image: mongo:7
+    container_name: dev-mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME:-mongoadmin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-mongopass}
+    volumes:
+      - mongodata:/data/db
+      - ./mongoscripts:/mongoscripts
+    healthcheck:
+      test: [ "CMD", "mongosh", "--eval", "db.adminCommand('ping')" ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    container_name: dev-app
+    volumes:
+      - ./:/workspace:cached
+    command: sleep infinity
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-postgresql://postgres:mypass@db:5432/postgres}
+      ALT_DATABASE_URL: ${DATABASE_URL:-postgresql://postgres:mypass@db:5432/projects_database}
+      LAB8_DATABASE_URL: ${LAB8_DATABASE_URL:-postgresql://postgres:mypass@db:5432/sqli}
+      MONGO_URL: ${MONGO_URL:-mongodb://mongoadmin:mongopass@mongo:27017/?authSource=admin}
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONUNBUFFERED: "1"
+    depends_on:
+      db:
+        condition: service_healthy
+      mongo:
+        condition: service_healthy
+
+volumes:
+  pgdata:
+  mongodata:

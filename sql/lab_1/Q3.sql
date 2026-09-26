@@ -1,0 +1,1 @@
+SELECT name, year FROM movie LIMIT 10;

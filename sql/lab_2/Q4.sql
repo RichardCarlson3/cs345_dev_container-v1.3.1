@@ -1,0 +1,1 @@
+SELECT pname, ROUND(CAST(price * 1.0625 AS numeric), 2) AS total FROM product;

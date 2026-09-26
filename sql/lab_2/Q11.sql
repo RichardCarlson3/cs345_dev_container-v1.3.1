@@ -1,0 +1,1 @@
+SELECT DISTINCT cname FROM product, company WHERE category = 'Gadgets' AND country = 'USA' AND cname = manufacturer;

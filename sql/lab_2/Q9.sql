@@ -1,0 +1,1 @@
+INSERT INTO employee (empid, empname, phone, managerid) VALUES(1, 'Richard', '111-1111', 5);
