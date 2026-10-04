@@ -1,0 +1,3 @@
+SELECT COUNT(*)
+FROM movie
+WHERE year = 1890;
