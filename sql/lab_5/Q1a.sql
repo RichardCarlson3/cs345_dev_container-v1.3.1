@@ -1,0 +1,4 @@
+CREATE TABLE Doctor(
+    badgeId VARCHAR(10) PRIMARY KEY,
+    name VARCHAR(10)
+);
