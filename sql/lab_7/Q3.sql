@@ -1,0 +1,1 @@
+CREATE INDEX IF NOT EXISTS GENRE_genre ON GENRE(genre, mid);

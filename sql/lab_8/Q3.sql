@@ -1,0 +1,3 @@
+CREATE TABLE Products AS (SELECT DISTINCT ProductID, ProductName, ItemPrice FROM ORDERS);
+CREATE TABLE Customers AS (SELECT DISTINCT CustomerID, CustomerName FROM ORDERS);
+CREATE TABLE TheOrders AS (SELECT DISTINCT OrderID, ProductID, CustomerID, Quantity FROM ORDERS);

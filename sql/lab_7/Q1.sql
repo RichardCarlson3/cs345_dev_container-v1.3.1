@@ -1,0 +1,1 @@
+CREATE INDEX IF NOT EXISTS movie_name ON Movie(name);

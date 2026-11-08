@@ -1,0 +1,9 @@
+1	Quantum Pharma.	14762 244th Ave NW	Sequim	98749
+2	New Medical Supply	24692 64th St W	Seattle	98814
+3	Intercon. Linens	26635 86th Ave N	Bothell	98462
+4	American Plastics	11302 109th St E	Bothell	98323
+5	Everett Chemical	6485 152nd St SE	Moses Lake	98673
+6	Blood Centers	12614 289th St E	Seattle	98774
+7	Wilson Electronics	11710 199th Ave W	Renton	98557
+8	Western Diagnostics	6684 105th St NE	Brier	98740
+9	Hippocratic Systems	19251 250th Ave NW	Bremerton	98435

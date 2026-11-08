@@ -1,0 +1,1 @@
+CREATE INDEX IF NOT EXISTS casts_mid ON casts(mid);
