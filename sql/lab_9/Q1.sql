@@ -1,0 +1,6 @@
+CREATE ROLE doctor;
+CREATE ROLE nurse;
+CREATE ROLE mcadmin;
+CREATE USER badr IN ROLE nurse PASSWORD 'Badr';
+CREATE USER carlos IN ROLE mcadmin PASSWORD 'Carlos';
+CREATE USER guest PASSWORD 'Guest';
